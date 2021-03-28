@@ -7,4 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="customDialogProgressBarTheme" parent="@style/Theme.AppCompat">
+        <item name="colorAccent">@color/black</item>
+    </style>
+
 </resources>

@@ -2,12 +2,12 @@ package com.theambitiouscoder.firebasechatapp.ui.users
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.theambitiouscoder.firebasechatapp.model.User
-import com.theambitiouscoder.firebasechatapp.repository.FirebaseRepository
+import com.theambitiouscoder.firebasechatapp.data.models.User
+import com.theambitiouscoder.firebasechatapp.data.repositories.firebase.FirebaseRepoImpl
 import java.util.ArrayList
 
 class UsersViewModel : ViewModel() {
-    private var authRepository  = FirebaseRepository()
+    private var authRepository  = FirebaseRepoImpl()
 
     var getProfileImageResponse = MutableLiveData<String>()
     var getErrorToastResponse = MutableLiveData<String>()

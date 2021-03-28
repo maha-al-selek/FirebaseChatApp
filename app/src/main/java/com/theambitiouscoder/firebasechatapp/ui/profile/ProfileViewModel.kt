@@ -1,13 +1,13 @@
-package com.theambitiouscoder.firebasechatapp.ui.user.profile
+package com.theambitiouscoder.firebasechatapp.ui.profile
 
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.theambitiouscoder.firebasechatapp.repository.FirebaseRepository
+import com.theambitiouscoder.firebasechatapp.data.repositories.firebase.FirebaseRepoImpl
 
 class ProfileViewModel : ViewModel() {
 
-    private var authRepository  = FirebaseRepository()
+    private var authRepository  = FirebaseRepoImpl()
     var uploadImageResponse = MutableLiveData<Boolean>()
     var getUserNameResponse = MutableLiveData<String>()
     var getProfileImageResponse = MutableLiveData<String>()

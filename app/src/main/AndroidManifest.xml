@@ -4,21 +4,21 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:requestLegacyExternalStorage="true">
-        <activity android:name="com.theambitiouscoder.firebasechatapp.ui.chat.ChatActivity"/>
+        android:theme="@style/AppTheme">
+        <activity android:name="com.theambitiouscoder.firebasechatapp.ui.chat.ChatActivity" />
 
 
-        <service android:name="com.theambitiouscoder.firebasechatapp.repository.FirebaseService"
+        <service
+            android:name="com.theambitiouscoder.firebasechatapp.data.backgroundServices.FirebaseService"
             android:permission="com.google.android.c2dm.permission.SEND">
 
             <intent-filter>
@@ -27,16 +27,17 @@
             </intent-filter>
 
         </service>
+
         <activity android:name="com.theambitiouscoder.firebasechatapp.ui.users.UsersActivity" />
-        <activity android:name="com.theambitiouscoder.firebasechatapp.ui.user.login.LoginActivity">
+        <activity android:name="com.theambitiouscoder.firebasechatapp.ui.auth.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.theambitiouscoder.firebasechatapp.ui.user.profile.ProfileActivity" />
-        <activity android:name="com.theambitiouscoder.firebasechatapp.ui.user.signup.SignUpActivity" />
+        <activity android:name="com.theambitiouscoder.firebasechatapp.ui.profile.ProfileActivity" />
+        <activity android:name="com.theambitiouscoder.firebasechatapp.ui.auth.signup.SignUpActivity" />
     </application>
 
 </manifest>
