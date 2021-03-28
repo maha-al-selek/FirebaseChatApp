@@ -5,21 +5,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.theambitiouscoder.firebasechatapp.R
-import com.theambitiouscoder.firebasechatapp.repository.FirebaseService
-import com.theambitiouscoder.firebasechatapp.model.User
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.theambitiouscoder.firebasechatapp.data.backgroundServices.FirebaseService
 import com.google.firebase.database.*
 import com.google.firebase.iid.FirebaseInstanceId
-import com.google.firebase.messaging.FirebaseMessaging
-import com.theambitiouscoder.firebasechatapp.ui.user.profile.ProfileActivity
-import com.theambitiouscoder.firebasechatapp.utils.Constants.Companion.FIREBASE_INSTANCE_URL
+import com.theambitiouscoder.firebasechatapp.ui.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_users.*
 
 class UsersActivity : AppCompatActivity() {

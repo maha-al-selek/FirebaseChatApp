@@ -1,23 +1,24 @@
-package com.theambitiouscoder.firebasechatapp.ui.user.login
+package com.theambitiouscoder.firebasechatapp.ui.auth.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.theambitiouscoder.firebasechatapp.R
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.theambitiouscoder.firebasechatapp.R
+import com.theambitiouscoder.firebasechatapp.data.enums.Resource
+import com.theambitiouscoder.firebasechatapp.ui.auth.signup.SignUpActivity
 import com.theambitiouscoder.firebasechatapp.ui.users.UsersActivity
-import com.theambitiouscoder.firebasechatapp.ui.user.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var loginViewModel: LoginViewModel
-    private  var firebaseUser: FirebaseUser? = null
+    private var firebaseUser: FirebaseUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,23 +26,38 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        loginViewModel.loginResponse.observe(this, Observer{
+        loginViewModel.loginResponse.observe(this, Observer {
             Log.d("LoginActivity", "The value of result is $it")
-            if (it){
-                etEmail.setText("")
-                etPassword.setText("")
-                val intent = Intent(
+
+            when (it) {
+
+                Resource.LOADING -> {
+                    progressBar.visibility = View.VISIBLE
+                }
+
+                Resource.COMPLETED -> {
+                    progressBar.visibility = View.GONE
+
+                    etEmail.setText("")
+                    etPassword.setText("")
+                    val intent = Intent(
                         this@LoginActivity,
                         UsersActivity::class.java
-                )
-                startActivity(intent)
-                finish()
-            }else{
-                Toast.makeText(
+                    )
+                    startActivity(intent)
+                    finish()
+                }
+
+                Resource.FAILED -> {
+                    progressBar.visibility = View.GONE
+
+                    Toast.makeText(
                         applicationContext,
                         "email or password invalid",
                         Toast.LENGTH_SHORT
-                ).show()
+                    ).show()
+                }
+
             }
         })
 
@@ -67,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
-                loginViewModel.userLogin(email,password)
+                loginViewModel.userLogin(email, password)
             }
         }
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.theambitiouscoder.firebasechatapp.R
-import com.theambitiouscoder.firebasechatapp.model.Chat
+import com.theambitiouscoder.firebasechatapp.data.models.Chat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import de.hdodenhof.circleimageview.CircleImageView

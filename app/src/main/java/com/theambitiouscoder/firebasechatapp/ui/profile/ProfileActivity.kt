@@ -1,4 +1,4 @@
-package com.theambitiouscoder.firebasechatapp.ui.user.profile
+package com.theambitiouscoder.firebasechatapp.ui.profile
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -6,20 +6,13 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.theambitiouscoder.firebasechatapp.R
-import com.theambitiouscoder.firebasechatapp.model.User
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import com.theambitiouscoder.firebasechatapp.utils.Constants.Companion.FIREBASE_INSTANCE_URL
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import kotlinx.android.synthetic.main.activity_users.imgBack
 import kotlinx.android.synthetic.main.activtiy_profile.*

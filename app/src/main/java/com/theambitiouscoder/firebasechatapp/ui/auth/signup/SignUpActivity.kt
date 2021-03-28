@@ -1,4 +1,4 @@
-package com.theambitiouscoder.firebasechatapp.ui.user.signup
+package com.theambitiouscoder.firebasechatapp.ui.auth.signup
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,10 +9,8 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.theambitiouscoder.firebasechatapp.R
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import com.theambitiouscoder.firebasechatapp.ui.users.UsersActivity
-import com.theambitiouscoder.firebasechatapp.ui.user.login.LoginActivity
+import com.theambitiouscoder.firebasechatapp.ui.auth.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import kotlinx.android.synthetic.main.activity_sign_up.btnLogin
@@ -30,7 +28,7 @@ class SignUpActivity : AppCompatActivity() {
 
         signUpViewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
 
-        signUpViewModel.signupResponse.observe(this, Observer{
+        signUpViewModel.signUpResponse.observe(this, Observer{
             Log.d("LoginActivity", "The value of result is $it")
             if (it){
                 etName.setText("")
@@ -90,6 +88,6 @@ class SignUpActivity : AppCompatActivity() {
 
 
     private fun registerUser(userName:String,email:String,password:String){
-        signUpViewModel.userSignup(userName, email,password)
+        signUpViewModel.userSignUp(userName, email,password)
     }
 }
